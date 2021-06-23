@@ -1,2 +1,2 @@
-# knowl-app
-Online Knowledge Portfolio Management Platform
+# 710Soft ©
+Software Develpment Company

@@ -14,13 +14,13 @@ import {
   UseGuards,
   Req,
 } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/guards';
+import { JwtAuthGuard } from '../auth/guards';
 import { TechnologyDto } from './dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { join } from 'path';
 import { ResponseError } from './enums';
-import { imageFileFilter } from 'src/utils';
+import { imageFileFilter } from '../utils';
 import { Response } from 'express';
 import { TechnologyService } from './technology.service';
 

@@ -13,7 +13,7 @@ import { join } from 'path';
 
 //DTOs
 
-import { Collection, Field, passwordSalts } from 'src/enums';
+import { Collection, Field, passwordSalts } from '../enums';
 import { User } from './models';
 import {
   ChangePasswordDto,

@@ -1,6 +1,8 @@
-export enum InterfaceTab {
-  CONSULT = "/home/consult",
-  RECORDS = "/home/records",
+export enum Routes {
+  PRINCIPAL = "/home/dashboard",
+  PERSONAL_INFO = "/home/profile",
+  EXPERIENCE = "/home/experience",
+  FORMATION = "/home/formation",
   SETTINGS = "/home/settings",
 }
 

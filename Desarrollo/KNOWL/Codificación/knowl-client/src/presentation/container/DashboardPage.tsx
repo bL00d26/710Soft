@@ -9,7 +9,7 @@ import Technologies from "../components/technologies/Technologies";
 const DashboardPage = () => {
   const classes = dashboardStyles();
   return (
-    <>
+    <div className={classes.main}>
       <Grid container spacing={4}>
         {/* Chart */}
         <Grid item xs={12} md={7} lg={7}>
@@ -24,7 +24,7 @@ const DashboardPage = () => {
           <Technologies />
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 

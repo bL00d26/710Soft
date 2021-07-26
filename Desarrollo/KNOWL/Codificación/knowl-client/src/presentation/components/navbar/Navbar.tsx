@@ -10,7 +10,7 @@ import {
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from "@material-ui/icons/Menu";
-import { navbarStyles } from "./navbar.styles";
+import { navbarStyles, name } from "./navbar.styles";
 
 const Navbar = () => {
   const classes = navbarStyles();
@@ -45,6 +45,16 @@ const Navbar = () => {
           className={classes.title}
         >
           KNOWL APP
+        </Typography>
+        <Typography
+          component="h1"
+          variant="h6"
+          color="inherit"
+          align="right"
+          noWrap
+          className={classes.name}
+        >
+          {name}
         </Typography>
         <IconButton className={classes.buttons}>
           <Badge badgeContent={69} color="secondary">

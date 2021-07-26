@@ -5,7 +5,7 @@ const Copyright = () => {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Todos los derechos reservados © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://github.com/fLYwEEdme/710Soft">
         Knowl App
       </Link>{" "}
       {new Date().getFullYear()}

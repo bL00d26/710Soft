@@ -1,11 +1,12 @@
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-const drawerWidth = 240;
+const drawerWidth = 0;
+export const name:string= 'Roberto Meregildo';
 export const navbarStyles = makeStyles((theme) => ({
   root: {
     display: "absolute",
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
+    paddingRight: 0, // keep right padding when drawer closed
   },
   toolbarIcon: {
     display: "flex",
@@ -43,6 +44,12 @@ export const navbarStyles = makeStyles((theme) => ({
     flexGrow: 1,
     color: "black",
     fontWeight: "bolder",
+  },
+  name: {
+    flexGrow: 1,
+    color: "black",
+    fontWeight: "normal",
+    fontSize: "18px",
   },
 
   container: {

@@ -9,6 +9,9 @@ import TokenVerify from "../../infrastructure/common-components/token-verify/Tok
 import { Container } from "@material-ui/core";
 import { Route, Switch } from "react-router-dom";
 import { commonStyles } from "../../infrastructure/common-components/styles/common.style";
+import ContactInfoPage from "./ContactInfoPage";
+import FormationPage from "./FormationPage";
+import ExperiencePage from "./ExperiencePage";
 
 const Platform = () => {
   const classes = commonStyles();
@@ -21,6 +24,9 @@ const Platform = () => {
         <Container className={clsx(classes.content, classes.appBarSpacer)}>
           <Switch>
             <Route path="/home/dashboard" exact component={DashboardPage} />
+            <Route path="/home/contactinfo" exact component={ContactInfoPage} />
+            <Route path="/home/formation" exact component={FormationPage} />
+            <Route path="/home/experience" exact component={ExperiencePage} />
             {/* <Route path="/home/records" exact component={RecordsPage} />
             <Route path="/home/settings" exact component={SettingsPage} /> */}
           </Switch>

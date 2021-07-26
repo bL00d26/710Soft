@@ -1,6 +1,6 @@
 export enum Routes {
   PRINCIPAL = "/home/dashboard",
-  PERSONAL_INFO = "/home/profile",
+  CONTACT_INFO = "/home/contactinfo",
   EXPERIENCE = "/home/experience",
   FORMATION = "/home/formation",
   SETTINGS = "/home/settings",

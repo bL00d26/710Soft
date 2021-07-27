@@ -18,9 +18,33 @@ export const userSchema = new Schema({
     type: String,
     required: true,
   },
+  birthday: {
+    type: String,
+    required: true,
+  },
   verified: {
     type: Boolean,
     default: false,
+    required: true,
+  },
+  profileImage: {
+    type: String,
+    default: 'default',
+    required: true,
+  },
+  ocupation: {
+    type: String,
+    default: ' ',
+    required: true,
+  },
+  country: {
+    type: String,
+    default: ' ',
+    required: true,
+  },
+  city: {
+    type: String,
+    default: ' ',
     required: true,
   },
 });

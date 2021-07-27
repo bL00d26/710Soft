@@ -25,4 +25,8 @@ export class RegisterUserDto {
   @IsString({ message: RegisterError.LAST_NAME, always: true })
   @IsNotEmpty({ message: RegisterError.EMPTY_LAST_NAME, always: true })
   lastName: string;
+
+  @IsString({ message: RegisterError.LAST_NAME, always: true })
+  @IsNotEmpty({ message: RegisterError.EMPTY_LAST_NAME, always: true })
+  birthday: string;
 }

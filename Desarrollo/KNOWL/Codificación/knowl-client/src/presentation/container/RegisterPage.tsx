@@ -4,6 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import moment from "moment";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -17,7 +18,7 @@ import {
 } from "../../infrastructure/api/register.actions";
 import { toast } from "react-toastify";
 import { registerStyles } from "../components/register/register.styles";
-
+import { TimeFormat } from "../../application/utils/enums";
 const RegisterPage = () => {
   const classes = registerStyles();
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const RegisterPage = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [birthday, setBirthday] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
   const registerErrors = useSelector(registerErrorsSelector);
   const handleLogin = (e: MouseEvent) => {
@@ -41,6 +43,7 @@ const RegisterPage = () => {
       email,
       password,
       repeatedPassword,
+      birthday,
     };
     dispatch(registerUser(registerUserDto));
   };
@@ -85,7 +88,6 @@ const RegisterPage = () => {
             fullWidth
             id="lastName"
             label="Apellidos"
-            autoFocus
             onChange={(e) => setLastName(e.target.value)}
             helperText={
               registerErrors &&
@@ -103,7 +105,6 @@ const RegisterPage = () => {
             label="Email"
             name="email"
             autoComplete="email"
-            autoFocus
             onChange={(e) => setEmail(e.target.value)}
             helperText={
               registerErrors &&
@@ -111,6 +112,26 @@ const RegisterPage = () => {
                 ? registerErrors[0]
                 : registerErrors)
             }
+          />
+          <TextField
+            id="date"
+            label="Fecha de Nacimiento"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            type="date"
+            onChange={(e) => setBirthday(e.target.value)}
+            defaultValue={moment(Date.now()).format(TimeFormat.BIRTHDAY)}
+            helperText={
+              registerErrors &&
+              (Array.isArray(registerErrors)
+                ? registerErrors[0]
+                : registerErrors)
+            }
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             variant="outlined"

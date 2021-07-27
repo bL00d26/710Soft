@@ -4,4 +4,5 @@ export interface RegisterUserDto {
   lastName: string;
   password: string;
   repeatedPassword: string;
+  birthday: string;
 }

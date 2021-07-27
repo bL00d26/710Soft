@@ -12,6 +12,7 @@ import { commonStyles } from "../../infrastructure/common-components/styles/comm
 import ContactInfoPage from "./ContactInfoPage";
 import FormationPage from "./FormationPage";
 import ExperiencePage from "./ExperiencePage";
+import { Routes } from "../../application/utils/enums";
 
 const Platform = () => {
   const classes = commonStyles();
@@ -23,12 +24,14 @@ const Platform = () => {
       <div>
         <Container className={clsx(classes.content, classes.appBarSpacer)}>
           <Switch>
-            <Route path="/home/dashboard" exact component={DashboardPage} />
-            <Route path="/home/contactinfo" exact component={ContactInfoPage} />
-            <Route path="/home/formation" exact component={FormationPage} />
-            <Route path="/home/experience" exact component={ExperiencePage} />
-            {/* <Route path="/home/records" exact component={RecordsPage} />
-            <Route path="/home/settings" exact component={SettingsPage} /> */}
+            <Route path={Routes.PRINCIPAL} exact component={DashboardPage} />
+            <Route
+              path={Routes.CONTACT_INFO}
+              exact
+              component={ContactInfoPage}
+            />
+            <Route path={Routes.FORMATION} exact component={FormationPage} />
+            <Route path={Routes.EXPERIENCE} exact component={ExperiencePage} />
           </Switch>
         </Container>
       </div>

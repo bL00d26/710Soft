@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const FormationPage = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div>Formation Page</div>;
+};
 
-export default FormationPage
+export default FormationPage;

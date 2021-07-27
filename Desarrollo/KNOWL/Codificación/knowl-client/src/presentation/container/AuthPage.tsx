@@ -31,7 +31,7 @@ const AuthPage = () => {
 
         <ProtectedRoute
           path="/home"
-          protectedRoute={false}
+          protectedRoute={true}
           component={Platform}
         />
 

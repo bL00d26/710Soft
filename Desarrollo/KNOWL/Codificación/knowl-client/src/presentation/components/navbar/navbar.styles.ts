@@ -1,6 +1,5 @@
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 const drawerWidth = 0;
-export const name:string= 'Roberto Meregildo';
 export const navbarStyles = makeStyles((theme) => ({
   root: {
     display: "absolute",

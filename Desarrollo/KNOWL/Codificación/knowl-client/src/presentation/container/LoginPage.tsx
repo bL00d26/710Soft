@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginErrorsSelector } from "../../application/store/ui/ui.selectors";
 import { userSelector } from "../../application/store/user/user.selectors";
 import { loginStyles } from "../components/login/login.styles";
+import { Routes } from "../../application/utils/enums";
 
 const LoginPage = () => {
   const classes = loginStyles();
@@ -45,7 +46,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user) {
-      history.push("/home/consult");
+      history.push(Routes.PRINCIPAL);
     }
     return () => {
       dispatch(resetLoginErrors());

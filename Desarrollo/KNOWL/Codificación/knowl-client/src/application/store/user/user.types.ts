@@ -1,7 +1,7 @@
 import { User } from "./interfaces/user.interface";
 
 //SERVER URL
-export const usersURL = "http://localhost:4000/users/";
+export const usersURL = "http://localhost:4000/user/";
 export const authURL = "http://localhost:4000/auth/";
 //ACTIONS NAMES
 export const USER_LOGIN = "[user] login";

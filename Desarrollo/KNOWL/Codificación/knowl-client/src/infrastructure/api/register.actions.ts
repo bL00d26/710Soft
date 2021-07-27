@@ -30,7 +30,6 @@ export const registerUser =
           payload: true,
         });
         toast.success("Usuario registrado con éxito");
-        toast.info("Confirme su correo para usar la plataforma");
       }
     } catch (error: any) {
       const errorAxios: AxiosError = error;

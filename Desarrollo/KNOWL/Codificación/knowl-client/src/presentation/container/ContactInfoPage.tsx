@@ -1,14 +1,14 @@
-import React from 'react'
-import CardContactInfo from '../components/cardcontactinfo/CardContactInfo';
-import { dashboardStyles } from "../components/dashboard/dashboard.styles";
+import React from "react";
+import CardContactInfo from "../components/cardcontactinfo/CardContactInfo";
+import { contactInfoStyles } from "../components/contact-info/contact-info.styles";
 
 const ContactInfoPage = () => {
-    const classes = dashboardStyles();
-    return (
-        <div className={classes.main}>
-            <CardContactInfo />
-        </div>
-    )
-}
+  const classes = contactInfoStyles();
+  return (
+    <div className={classes.main}>
+      <CardContactInfo />
+    </div>
+  );
+};
 
-export default ContactInfoPage
+export default ContactInfoPage;

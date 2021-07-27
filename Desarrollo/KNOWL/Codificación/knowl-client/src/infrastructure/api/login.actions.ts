@@ -67,7 +67,6 @@ export const loadUserCurrent =
       }
     } catch (error: any) {
       const errorAxios: AxiosError = error;
-      console.log("holaaa");
       console.log(error.response);
       dispatch({
         type: UI_LOGIN_ERROR,

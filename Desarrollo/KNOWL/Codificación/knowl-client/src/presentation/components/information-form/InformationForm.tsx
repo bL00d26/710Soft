@@ -1,4 +1,4 @@
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,14 +38,16 @@ const InformationForm = () => {
   }, [isRegisterDone]);
   return (
     <div className={classes.paper}>
+      <Typography className={classes.modalTitle}>Agrega información a tu perfil</Typography>
       <form className={classes.form} noValidate onSubmit={handleRegister}>
         <TextField
           variant="outlined"
           margin="normal"
-          required
           fullWidth
-          id="firstName"
-          label="Nombres"
+          id="ocupation"
+          label="Ocupación"
+          name="ocupation"
+          required
           autoFocus
           onChange={(e) => setOcupation(e.target.value)}
           helperText={
@@ -56,10 +58,11 @@ const InformationForm = () => {
         <TextField
           variant="outlined"
           margin="normal"
-          required
           fullWidth
-          id="lastName"
-          label="Apellidos"
+          id="country"
+          label="País"
+          name="country"
+          required
           onChange={(e) => setCountry(e.target.value)}
           helperText={
             registerErrors &&
@@ -69,12 +72,11 @@ const InformationForm = () => {
         <TextField
           variant="outlined"
           margin="normal"
-          required
           fullWidth
-          id="email"
-          label="Email"
-          name="email"
-          autoComplete="email"
+          id="city"
+          label="City"
+          name="city"
+          required
           onChange={(e) => setCity(e.target.value)}
           helperText={
             registerErrors &&
@@ -89,7 +91,7 @@ const InformationForm = () => {
           color="primary"
           className={classes.submit}
         >
-          Registrar
+          Guardar
         </Button>
       </form>
     </div>

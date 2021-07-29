@@ -4,42 +4,53 @@ import { FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
-  isRegisterDoneSelector,
-  registerErrorsSelector,
+  editErrorsSelector,
+  isEditDoneSelector,
 } from "../../../application/store/ui/ui.selectors";
+import { userSelector } from "../../../application/store/user/user.selectors";
+import {
+  resetVerifyErrors,
+  userVerifyData,
+} from "../../../infrastructure/api/user-verify.actions";
+import { UserVerifyDto } from "./dto/user-verify.dto";
 import { informationFormStyles } from "./information-form.styles";
 
 const InformationForm = () => {
   const classes = informationFormStyles();
   const dispatch = useDispatch();
-  const isRegisterDone = useSelector(isRegisterDoneSelector);
+  const user = useSelector(userSelector);
+  const isEditDone = useSelector(isEditDoneSelector);
+  const editErrors = useSelector(editErrorsSelector);
   const [ocupation, setOcupation] = useState("");
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
-
-  const registerErrors = useSelector(registerErrorsSelector);
-
-  const handleRegister = (e: FormEvent) => {
+  const handleEditInformation = (e: FormEvent) => {
     e.preventDefault();
-    const registerUserDto = {
+    const userVerifyDto: UserVerifyDto = {
       ocupation,
       country,
       city,
     };
-    //   dispatch(registerUser(registerUserDto));
+    dispatch(userVerifyData(user?._id as string, userVerifyDto));
   };
   useEffect(() => {
-    if (isRegisterDone) {
+    if (isEditDone) {
       toast.success("Registro realizado con éxito");
     }
     return () => {
-      // dispatch(resetRegisterErrors());
+      dispatch(resetVerifyErrors());
     };
-  }, [isRegisterDone]);
+  }, [isEditDone]);
   return (
     <div className={classes.paper}>
-      <Typography className={classes.modalTitle}>Agrega información a tu perfil</Typography>
-      <form className={classes.form} noValidate onSubmit={handleRegister}>
+      <Typography className={classes.modalTitle}>
+        Agrega información a tu perfil
+      </Typography>
+      <form
+        className={classes.form}
+        noValidate
+        onSubmit={handleEditInformation}
+      >
         <TextField
           variant="outlined"
           margin="normal"
@@ -51,8 +62,8 @@ const InformationForm = () => {
           autoFocus
           onChange={(e) => setOcupation(e.target.value)}
           helperText={
-            registerErrors &&
-            (Array.isArray(registerErrors) ? registerErrors[0] : registerErrors)
+            editErrors &&
+            (Array.isArray(editErrors) ? editErrors[0] : editErrors)
           }
         />
         <TextField
@@ -65,8 +76,8 @@ const InformationForm = () => {
           required
           onChange={(e) => setCountry(e.target.value)}
           helperText={
-            registerErrors &&
-            (Array.isArray(registerErrors) ? registerErrors[0] : registerErrors)
+            editErrors &&
+            (Array.isArray(editErrors) ? editErrors[0] : editErrors)
           }
         />
         <TextField
@@ -79,8 +90,8 @@ const InformationForm = () => {
           required
           onChange={(e) => setCity(e.target.value)}
           helperText={
-            registerErrors &&
-            (Array.isArray(registerErrors) ? registerErrors[0] : registerErrors)
+            editErrors &&
+            (Array.isArray(editErrors) ? editErrors[0] : editErrors)
           }
         />
 

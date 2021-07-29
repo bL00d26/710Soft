@@ -25,18 +25,15 @@ const Platform = () => {
       <Navbar />
       <Sidebar />
       <TokenVerify />
-      <Modal open={!user?.verified}>
+      {/* <Modal open={!user?.verified}>
+        /* Add Typography
         <InformationForm />
-      </Modal>
+      </Modal> */}
       <div>
         <Container className={clsx(classes.content, classes.appBarSpacer)}>
           <Switch>
             <Route path={Routes.PRINCIPAL} exact component={DashboardPage} />
-            <Route
-              path={Routes.CONTACT_INFO}
-              exact
-              component={ContactInfoPage}
-            />
+            <Route path={Routes.CONTACT_INFO} exact component={ContactInfoPage} />
             <Route path={Routes.FORMATION} exact component={FormationPage} />
             <Route path={Routes.EXPERIENCE} exact component={ExperiencePage} />
           </Switch>

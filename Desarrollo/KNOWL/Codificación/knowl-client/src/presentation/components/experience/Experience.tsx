@@ -9,9 +9,9 @@ const Experience = () => {
   const classes = experienceStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   return (
-    <Paper className={fixedHeightPaper} style={{ textAlign: "center" }}>
-      Experiencia
-    </Paper>
+      <Paper className={fixedHeightPaper} style={{ textAlign: "center" }}>
+        Experiencia
+      </Paper>
   );
 };
 

@@ -16,7 +16,15 @@ export const informationFormStyles = makeStyles((theme) => ({
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    top: "50%",
-    left: "50%",
+    marginLeft: "38%",
+    marginTop: "15%",
+  },
+
+  modalTitle: {
+    marginTop: "4%",
+    fontSize: "16px",
+    fontWeight: "bold",
+    marginBottom: "2%",
+    textAlign:"center",
   },
 }));

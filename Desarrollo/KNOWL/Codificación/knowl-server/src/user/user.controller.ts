@@ -153,7 +153,8 @@ export class UserController {
     @Body() userVerifyDto: UserVerifyDto,
   ) {
     const user = await this.userService.userVerify(userId, userVerifyDto);
-    if (!user) throw new NotFoundException('User was not updated');
+    if (!user)
+      throw new NotFoundException(['Los datos ingresados son incorrectos']);
     res.status(HttpStatus.OK).json({
       success: true,
       user,

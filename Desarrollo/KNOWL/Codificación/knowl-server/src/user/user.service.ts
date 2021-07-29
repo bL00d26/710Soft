@@ -22,6 +22,7 @@ import {
   RegisterUserDto,
 } from './dto';
 import { ChangeRecoverPasswordDto } from './dto/change-recover-password.dto';
+import { UserVerifyDto } from './dto/user-verify.dto';
 
 @Injectable()
 export class UserService {
@@ -120,6 +121,20 @@ export class UserService {
       const newUser = await this.userModel.findByIdAndUpdate(
         userId,
         editUserDto,
+        { new: true },
+      );
+
+      return newUser;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async userVerify(userId: string, userVerifyDto: UserVerifyDto) {
+    try {
+      const newUser = await this.userModel.findByIdAndUpdate(
+        userId,
+        { ...userVerifyDto, verified: true },
         { new: true },
       );
 

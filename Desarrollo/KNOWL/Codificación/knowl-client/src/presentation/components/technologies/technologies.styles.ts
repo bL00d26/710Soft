@@ -12,4 +12,16 @@ export const technologiesStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+
+  labelcontainer: {
+
+  },
+
+  label: {
+
+  },
+
+  title: {
+
+  },
 }));

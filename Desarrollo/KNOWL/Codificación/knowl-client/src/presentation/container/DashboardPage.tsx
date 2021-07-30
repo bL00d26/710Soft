@@ -12,15 +12,15 @@ const DashboardPage = () => {
       <Grid container spacing={4}>
         {/* Chart */}
         <Grid item xs={12} md={7} lg={7}>
-          <Experience />
+          NOTICIAS
         </Grid>
 
         <Grid item xs={12} md={5} lg={5}>
-          <Knowledge />
+          ÚLTIMAS ACTUALIZACIONES
         </Grid>
 
         <Grid item xs={12}>
-          <Technologies />
+          GCM - LENIS WONG
         </Grid>
       </Grid>
     </div>

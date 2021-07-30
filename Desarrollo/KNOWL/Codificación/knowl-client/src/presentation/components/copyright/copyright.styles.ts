@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const cardContactInfoStyles = makeStyles((theme) => ({
+export const copyrightStyles = makeStyles((theme) => ({
     title: {
         textAlign: "center",
     },
@@ -16,15 +16,4 @@ export const cardContactInfoStyles = makeStyles((theme) => ({
         marginRight: "2%",
         marginBottom: "0%",
     },
-
-    imagecontainer: {
-        textAlign: "center",
-        height: "20%",
-        
-    },
-
-    img: {
-        
-    }
-
 }))

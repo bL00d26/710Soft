@@ -10,12 +10,15 @@ export const commonStyles = makeStyles((theme) => ({
     heigth: "100%",
     ...theme.mixins.toolbar,
   },
+  
   appBarSpacer: theme.mixins.toolbar,
+  
   content: {
     flexGrow: 1,
     height: "100vh",
     overflow: "auto",
   },
+
   paper: {
     backgroundColor: "#F1F1F1",
     padding: theme.spacing(2),

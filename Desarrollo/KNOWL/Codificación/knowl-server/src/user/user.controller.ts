@@ -31,6 +31,7 @@ import { imageFileFilter } from 'src/utils';
 import { JwtAuthGuard } from 'src/auth/guards';
 import { ResponseError } from './enums';
 import { ChangeRecoverPasswordDto } from './dto/change-recover-password.dto';
+import { UserVerifyDto } from './dto/user-verify.dto';
 
 @Controller('user')
 export class UserController {
@@ -138,6 +139,22 @@ export class UserController {
   ) {
     const user = await this.userService.editUser(userId, editUserDto);
     if (!user) throw new NotFoundException('User was not updated');
+    res.status(HttpStatus.OK).json({
+      success: true,
+      user,
+    });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put('/verify/:id')
+  async verifyData(
+    @Res() res: Response,
+    @Param('id') userId: string,
+    @Body() userVerifyDto: UserVerifyDto,
+  ) {
+    const user = await this.userService.userVerify(userId, userVerifyDto);
+    if (!user)
+      throw new NotFoundException(['Los datos ingresados son incorrectos']);
     res.status(HttpStatus.OK).json({
       success: true,
       user,

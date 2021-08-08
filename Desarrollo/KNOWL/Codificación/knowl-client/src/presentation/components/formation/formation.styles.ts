@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const experienceStyles = makeStyles((theme) => ({
+export const formationStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: "#F1F1F1",
     padding: theme.spacing(2),

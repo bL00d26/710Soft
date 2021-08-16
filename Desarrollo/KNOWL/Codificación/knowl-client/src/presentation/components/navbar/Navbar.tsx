@@ -19,6 +19,8 @@ const Navbar = () => {
   const user = useSelector(userSelector);
   const classes = navbarStyles();
   const dispatch = useDispatch();
+  
+  // FROM THE NAVBAR
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);

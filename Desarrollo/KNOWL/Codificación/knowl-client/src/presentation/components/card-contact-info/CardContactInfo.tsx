@@ -6,8 +6,7 @@ import { cardContactInfoStyles } from './card-contact-info.styles'
 import { useSelector } from 'react-redux'
 import { userSelector } from '../../../application/store/user/user.selectors'
 import UserActivity from '../user-activity/UserActivity'
-
-
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const CardContactInfo = () => {
   const classes = cardContactInfoStyles();
@@ -21,6 +20,11 @@ const CardContactInfo = () => {
         <CardContent>
           <Grid container spacing={2}>
             {/* Chart */}
+            <Grid item xs={12} md={12} lg={12} style={{textAlign:"right"}}>
+              <div className={classes.labelcontainer}>
+              <span><SettingsIcon style={{textAlign:'right', fontSize:'20px', fontFamily:'Roboto', color:'#748183', marginRight:'4px'}} /></span>
+              </div>
+            </Grid>
             <Grid item xs={12} md={12} lg={12}>
               <UserActivity />
             </Grid>

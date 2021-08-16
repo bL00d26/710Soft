@@ -1,6 +1,7 @@
 import { Typography } from '@material-ui/core';
 import React from 'react'
 import { userActivityStyles } from './user-activity.styles'
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const UserActivity = () => {
     const classes = userActivityStyles();

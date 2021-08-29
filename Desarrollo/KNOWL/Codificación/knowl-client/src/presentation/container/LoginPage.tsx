@@ -9,6 +9,7 @@ import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
 import { LoginDto } from "../components/login/dto/login.dto";
 import {
+  loadUsers,
   loginUser,
   resetLoginErrors,
 } from "../../infrastructure/api/login.actions";
@@ -46,7 +47,8 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user) {
-      history.push(Routes.PRINCIPAL);
+      dispatch(loadUsers());
+      history.push(Routes.PROFILE);
     }
     return () => {
       dispatch(resetLoginErrors());

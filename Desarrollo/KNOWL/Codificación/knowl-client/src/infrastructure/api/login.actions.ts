@@ -6,6 +6,7 @@ import {
   authURL,
   USER_LOGIN,
   USER_LOAD,
+  USERS_LOAD,
 } from "../../application/store/user/user.types";
 import { LoginDto } from "../../presentation/components/login/dto/login.dto";
 import {
@@ -51,6 +52,21 @@ export const resetLoginErrors = () => (dispatch: Dispatch<UiDispatchTypes>) => {
   });
 };
 
+export const loadUsers =
+  () => async (dispatch: Dispatch<UserDispatchTypes | UiDispatchTypes>) => {
+    try {
+      const res = await axios.get(usersURL.concat("all"));
+      if (res.data.success) {
+        dispatch({
+          type: USERS_LOAD,
+          payload: res.data.users,
+        });
+      }
+    } catch (error: any) {
+      const errorAxios: AxiosError = error;
+      console.log(error.response);
+    }
+  };
 export const loadUserCurrent =
   () => async (dispatch: Dispatch<UserDispatchTypes | UiDispatchTypes>) => {
     try {

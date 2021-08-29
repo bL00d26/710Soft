@@ -2,26 +2,17 @@ import {
   Card,
   CardContent,
   CardHeader,
-  CardMedia,
-  FormControl,
-  FormHelperText,
   Grid,
-  Input,
-  InputLabel,
-  makeStyles,
   Typography,
 } from "@material-ui/core";
-import { Label } from "@material-ui/icons";
-import { Col, Container, Row } from "reactstrap";
 import React from "react";
 import { cardContactInfoStyles } from "./card-contact-info.styles";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../../application/store/user/user.selectors";
 import UserActivity from "../user-activity/UserActivity";
-import SettingsIcon from "@material-ui/icons/Settings";
+import EditIcon from "@material-ui/icons/Edit";
 import { useHistory } from "react-router-dom";
 import { Routes } from "../../../application/utils/enums";
-
 const CardContactInfo = () => {
   const classes = cardContactInfoStyles();
   const history = useHistory();
@@ -39,7 +30,7 @@ const CardContactInfo = () => {
             <Grid item xs={12} md={12} lg={12} style={{ textAlign: "right" }}>
               <div className={classes.labelcontainer}>
                 <span>
-                  <SettingsIcon
+                  <EditIcon
                     style={{
                       textAlign: "right",
                       fontSize: "20px",

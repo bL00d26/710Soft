@@ -14,6 +14,7 @@ import { navbarStyles } from "./navbar.styles";
 import { logOut } from "../../../infrastructure/api/auth.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { userSelector } from "../../../application/store/user/user.selectors";
+import UserSearch from "../user-search/UserSearch";
 
 const Navbar = () => {
   const user = useSelector(userSelector);
@@ -31,7 +32,7 @@ const Navbar = () => {
 
   return (
     <AppBar
-      position="absolute"
+      position="fixed"
       className={clsx(classes.appBar, open && classes.appBarShift)}
     >
       <Toolbar className={classes.toolbar}>
@@ -53,6 +54,7 @@ const Navbar = () => {
         >
           KNOWL APP
         </Typography>
+        <UserSearch />
         <Typography
           component="h1"
           variant="h6"

@@ -1,7 +1,8 @@
 export interface EditUserDto {
   firstName?: string;
-
   lastName?: string;
-
-  email?: string;
+  ocupation?: string;
+  birthday?: string;
+  country?: string;
+  city?: string;
 }

@@ -7,12 +7,12 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-
+import "./edit-technology.css";
 const EditTechnologies = () => {
   const classes = editTechnologiesStyles();
   return (
-    <div>
-      <Container component="form" maxWidth="sm">
+    <div className="edit-technology-container">
+      <Container maxWidth="sm">
         <Typography className={classes.oneRow} component="h1" variant="h5">
           EDITAR TECNOLOGÍAS
         </Typography>

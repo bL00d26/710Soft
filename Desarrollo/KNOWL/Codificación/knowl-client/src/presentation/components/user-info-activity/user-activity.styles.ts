@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const editActivityStyles = makeStyles((theme) => ({
+export const userActivityStyles = makeStyles((theme) => ({
     title: {
         textAlign: "center",
     },
@@ -27,10 +27,6 @@ export const editActivityStyles = makeStyles((theme) => ({
         borderRadius: "7em",
         textAlign: "center",
         marginBottom: "8px",
-        marginTop: "8px"
     },
-    submit: {
-        margin: theme.spacing(1, 0, 1),
-        backgroundColor: "#274A59",
-      },
+
 }))

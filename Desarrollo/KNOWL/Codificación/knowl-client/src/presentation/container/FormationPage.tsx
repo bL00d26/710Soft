@@ -1,21 +1,38 @@
-import { Card, CardContent, CardHeader } from "@material-ui/core";
-import React from "react";
+import { Card, CardContent, CardHeader, Modal } from "@material-ui/core";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { formationSelector } from "../../application/store/user/user.selectors";
 import CardFormationInfo from "../components/card-formation-info/CardFormationInfo";
 import { formationStyles } from "../components/formation/formation.styles";
+import NewFormationForm from "../components/new-formation-form/NewFormationForm";
 
 const FormationPage = () => {
   const classes = formationStyles();
+  const [openModal, setOpenModal] = useState(false);
+  const formation = useSelector(formationSelector);
   return (
     <div className={classes.main}>
-            <Card>
-                <CardHeader title="FORMACIÓN ACADÉMICA" style={{ textAlign: "center", }} ></CardHeader>
-                <CardContent>
-                  <CardFormationInfo />
-                  <CardFormationInfo />
-                  <CardFormationInfo />
-                </CardContent>
-            </Card>
+      <Modal open={openModal}>
+        <NewFormationForm setModalOpen={setOpenModal} />
+      </Modal>
+      <Card>
+        <CardHeader
+          title="FORMACIÓN ACADÉMICA"
+          style={{ textAlign: "center" }}
+        ></CardHeader>
+        <div className="formation-button-container">
+          <button onClick={(e) => setOpenModal(true)}>Agregar</button>
+          {/* <button>Agregar</button> */}
         </div>
+        <CardContent>
+          {formation &&
+            formation.map((formation, index) => (
+              <CardFormationInfo key={index} formation={formation} />
+            ))}
+          {/* <CardFormationInfo /> */}
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 

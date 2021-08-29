@@ -16,7 +16,7 @@ export const sidebarStyles = makeStyles((theme) => ({
     gridArea: "sidebar",
     backgroundColor: "#748183 !important",
     color: "white",
-    position: "absolute",
+    position: "fixed",
     whiteSpace: "nowrap",
     width: drawerWidth,
 

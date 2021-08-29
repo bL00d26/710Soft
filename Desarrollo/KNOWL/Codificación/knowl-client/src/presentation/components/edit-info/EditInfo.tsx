@@ -6,37 +6,39 @@ import {
   Typography,
 } from "@material-ui/core";
 import React, { FormEvent, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editInfoStyles } from "./edit-info.styles";
 import { userSelector } from "../../../application/store/user/user.selectors";
 import moment from "moment";
 import { TimeFormat } from "../../../application/utils/enums";
-
+import "./edit-info.css";
+import { editUser } from "../../../infrastructure/api/user.actions";
 const EditInfo = () => {
   const classes = editInfoStyles();
   const user = useSelector(userSelector);
+  const dispatch = useDispatch();
   const [firstName, setFirstName] = useState(user?.firstName);
   const [lastName, setLastName] = useState(user?.lastName);
   const [ocupation, setOcupation] = useState(user?.ocupation);
   const [birthday, setBirthday] = useState(user?.birthday);
   const [country, setCountry] = useState(user?.country);
   const [city, setCity] = useState(user?.city);
-  const [email, setEmail] = useState(user?.email);
+  // const [email, setEmail] = useState(user?.email);
   const handleEditInfo = (e: FormEvent) => {
     e.preventDefault();
-    console.log({
+    const editUserDto = {
       firstName,
       lastName,
       ocupation,
       birthday,
       country,
       city,
-      email,
-    });
+    };
+    dispatch(editUser(editUserDto, user?._id as string));
   };
   return (
-    <div>
-      <Container component="form" maxWidth="xs">
+    <div className="edit-info-container">
+      <Container maxWidth="xs">
         <Typography className={classes.oneRow} component="h1" variant="h5">
           EDITAR INFORMACIÓN DE CONTACTO
         </Typography>
@@ -121,7 +123,7 @@ const EditInfo = () => {
             InputLabelProps={{ shrink: true }}
             onChange={(e) => setCity(e.target.value)}
           />
-          <TextField
+          {/* <TextField
             className="textfield"
             variant="outlined"
             margin="normal"
@@ -133,7 +135,7 @@ const EditInfo = () => {
             value={email}
             InputLabelProps={{ shrink: true }}
             onChange={(e) => setEmail(e.target.value)}
-          />
+          /> */}
 
           <Button
             type="submit"

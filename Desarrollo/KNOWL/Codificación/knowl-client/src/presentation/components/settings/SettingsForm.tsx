@@ -21,7 +21,7 @@ const SettingsForm = () => {
     const editUserDto: EditUserDto = {
       firstName,
       lastName,
-      email,
+      // email,
     };
     dispatch(editUser(editUserDto, user?._id as string));
   };

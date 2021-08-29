@@ -14,8 +14,52 @@
   margin: 0;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "navbar navbar"
     "sidebar platform";
+  /* "sidebar copyright"; */
 }
+
+.settings-container {
+  box-shadow: 0 0 1px;
+  border-radius: 0.2rem;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "edit-activity edit-info"
+    "edit-status edit-info";
+}
+
+.formation-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.formation-button-container button {
+  margin: 0 0.5em;
+}
+
+.span-cursor {
+  cursor: pointer;
+}
+
+.btn {
+  color: white;
+  background-color: #748183;
+  border-radius: 0.4em;
+  padding: 1em 1.5em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #444b4d;
+}
+/* .copyright-footer {
+  margin-top: 1em;
+  grid-area: copyright;
+} */

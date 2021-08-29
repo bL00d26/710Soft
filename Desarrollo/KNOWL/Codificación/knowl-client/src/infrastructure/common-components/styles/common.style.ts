@@ -14,8 +14,6 @@ export const commonStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
 
   content: {
-    gridArea: "platform",
-
     height: "100%",
     width: "100%",
   },

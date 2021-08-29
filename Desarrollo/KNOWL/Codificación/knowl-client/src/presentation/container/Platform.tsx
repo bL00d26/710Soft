@@ -16,30 +16,32 @@ import { useSelector } from "react-redux";
 import { userSelector } from "../../application/store/user/user.selectors";
 import InformationForm from "../components/information-form/InformationForm";
 import { modalStyles } from "../../infrastructure/common-components/modal/modal.styles";
+import SettingsPage from "./SettingsPage";
 
 const Platform = () => {
   const classes = commonStyles();
   const user = useSelector(userSelector);
   return (
-    <>
+    <div className="platform-container">
       <Navbar />
+
       <Sidebar />
       <TokenVerify />
-      {/* <Modal open={!user?.verified}>
+      <Modal open={!user?.verified}>
         <InformationForm />
-      </Modal> */}
-      <div>
-        <Container className={clsx(classes.content, classes.appBarSpacer)}>
-          <Switch>
-            <Route path={Routes.PRINCIPAL} exact component={DashboardPage} />
-            <Route path={Routes.CONTACT_INFO} exact component={ContactInfoPage} />
-            <Route path={Routes.FORMATION} exact component={FormationPage} />
-            <Route path={Routes.EXPERIENCE} exact component={ExperiencePage} />
-          </Switch>
-        </Container>
-      </div>
+      </Modal>
+      <Container className={clsx(classes.content)}>
+        <Switch>
+          <Route path={Routes.PRINCIPAL} exact component={DashboardPage} />
+          <Route path={Routes.PROFILE} exact component={ContactInfoPage} />
+          <Route path={Routes.FORMATION} exact component={FormationPage} />
+          <Route path={Routes.EXPERIENCE} exact component={ExperiencePage} />
+          <Route path={Routes.SETTINGS} exact component={SettingsPage} />
+        </Switch>
+      </Container>
+
       <Copyright />
-    </>
+    </div>
   );
 };
 

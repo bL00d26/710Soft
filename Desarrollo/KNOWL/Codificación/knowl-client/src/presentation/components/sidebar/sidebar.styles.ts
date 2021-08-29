@@ -13,11 +13,13 @@ export const sidebarStyles = makeStyles((theme) => ({
 
   // from template method
   drawerPaper: {
+    gridArea: "sidebar",
     backgroundColor: "#748183 !important",
     color: "white",
     position: "absolute",
     whiteSpace: "nowrap",
     width: drawerWidth,
+
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -27,6 +29,7 @@ export const sidebarStyles = makeStyles((theme) => ({
   // from template method
   drawerPaperClose: {
     overflowX: "hidden",
+    height: "100%",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

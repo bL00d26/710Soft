@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { store } from "./application/store/store";
 import AuthPage from "./presentation/container/AuthPage";
-import Platform from "./presentation/container/Platform";
 
 ReactDOM.render(
   <Provider store={store}>

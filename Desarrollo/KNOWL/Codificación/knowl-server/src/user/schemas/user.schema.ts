@@ -47,6 +47,11 @@ export const userSchema = new Schema({
     default: ' ',
     required: true,
   },
+  status: {
+    type: String,
+    default: 'Yo uso Knowl App',
+    required: true,
+  },
 });
 
 userSchema.set('toJSON', {

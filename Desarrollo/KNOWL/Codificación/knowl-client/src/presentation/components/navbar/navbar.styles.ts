@@ -21,6 +21,7 @@ export const navbarStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    gridArea: "navbar",
   },
   appBarShift: {
     marginLeft: drawerWidth,

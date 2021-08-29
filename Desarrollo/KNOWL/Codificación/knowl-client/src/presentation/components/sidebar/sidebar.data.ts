@@ -8,7 +8,8 @@ export interface SidebarItem {
 
 export const sidebarItems: SidebarItem[] = [
   { icon: "Dashboard", sidebarItem: "Principal", route: Routes.PRINCIPAL },
-  { icon: "Person", sidebarItem: "Contacto", route: Routes.CONTACT_INFO,},
+  { icon: "Person", sidebarItem: "Perfil", route: Routes.PROFILE },
   { icon: "Code", sidebarItem: "Formación", route: Routes.FORMATION },
   { icon: "Timeline", sidebarItem: "Experiencia", route: Routes.EXPERIENCE },
+  { icon: "Edit", sidebarItem: "Editar Perfil", route: Routes.SETTINGS },
 ];

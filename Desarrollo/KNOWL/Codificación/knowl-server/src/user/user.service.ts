@@ -14,7 +14,7 @@ import { join } from 'path';
 //DTOs
 
 import { Collection, Field, passwordSalts } from 'src/enums';
-import { User } from './models';
+import { Experience, Formation, User } from './models';
 import {
   ChangePasswordDto,
   EditUserDto,
@@ -23,12 +23,18 @@ import {
 } from './dto';
 import { ChangeRecoverPasswordDto } from './dto/change-recover-password.dto';
 import { UserVerifyDto } from './dto/user-verify.dto';
+import { NewFormationDto } from './dto/new-formation.dto';
+import { NewExperienceDto } from './dto/new-experience.dto';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectModel(Collection.USER)
     private readonly userModel: Model<User>,
+    @InjectModel(Collection.FORMATION)
+    private readonly formationModel: Model<Formation>,
+    @InjectModel(Collection.EXPERIENCE)
+    private readonly experienceModel: Model<Experience>,
   ) {}
 
   async loginUser(loginUserDto: LoginUserDto) {
@@ -69,7 +75,7 @@ export class UserService {
       const newUser = await this.userModel.findByIdAndUpdate(
         userId,
         {
-          profileImage: `http://localhost:3001/users/profile/${userId}`,
+          profileImage: `http://localhost:4000/user/profile/${userId}`,
         },
         { new: true },
       );
@@ -116,6 +122,40 @@ export class UserService {
     }
   }
 
+  async getAllUsers() {
+    try {
+      const users = await this.userModel.find();
+      return users;
+    } catch (error) {
+      return null;
+    }
+  }
+  async getUser(id: string) {
+    try {
+      const user = await this.userModel.findById(id);
+      return user;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  async getFormation(id: string) {
+    try {
+      const formation = await this.formationModel.find({ user: id });
+      return formation;
+    } catch (error) {
+      return null;
+    }
+  }
+  async getExperience(id: string) {
+    try {
+      const experience = await this.experienceModel.find({ user: id });
+      return experience;
+    } catch (error) {
+      return null;
+    }
+  }
+
   async editUser(userId: string, editUserDto: EditUserDto) {
     try {
       const newUser = await this.userModel.findByIdAndUpdate(
@@ -123,6 +163,17 @@ export class UserService {
         editUserDto,
         { new: true },
       );
+
+      return newUser;
+    } catch (error) {
+      return null;
+    }
+  }
+  async editStatus(userId: string, status: { status: string }) {
+    try {
+      const newUser = await this.userModel.findByIdAndUpdate(userId, status, {
+        new: true,
+      });
 
       return newUser;
     } catch (error) {
@@ -214,6 +265,28 @@ export class UserService {
       return true;
     } catch (error) {
       return false;
+    }
+  }
+
+  async newFormation(newFormationDto: NewFormationDto) {
+    try {
+      const newFormation = await new this.formationModel(
+        newFormationDto,
+      ).save();
+      return newFormation;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+  async newExperience(newExperienceDto: NewExperienceDto) {
+    try {
+      const newExperience = await new this.experienceModel(
+        newExperienceDto,
+      ).save();
+      return newExperience;
+    } catch (error) {
+      return null;
     }
   }
 }

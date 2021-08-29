@@ -14,7 +14,6 @@ export const formationStyles = makeStyles((theme) => ({
   },
 
   main: {
-    marginLeft: "240px",
     marginTop: "100px",
   },
 }));

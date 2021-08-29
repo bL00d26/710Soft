@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+.auth-container {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.platform-container {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "navbar navbar"
+    "sidebar platform";
+}

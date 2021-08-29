@@ -1,5 +1,7 @@
 export enum Collection {
   USER = 'User',
+  FORMATION = 'Formation',
+  EXPERIENCE = 'Experience',
   TECHNOLOGY = 'Technology',
 }
 

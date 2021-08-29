@@ -11,4 +11,5 @@ export interface User extends Document {
   ocupation: string;
   country: string;
   city: string;
+  status:string;
 }

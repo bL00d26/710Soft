@@ -12,22 +12,13 @@ const ContactInfoPage = () => {
   const classes = contactInfoStyles();
   return (
     <div className={classes.main}>
-      <Grid container spacing={4} style={{textAlign:"center",}}>
+      <Grid container spacing={4} style={{ textAlign: "center" }}>
         {/* Chart */}
         <Grid item xs={12} md={12} lg={12}>
           <CardContactInfo />
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
           <Technologies />
-        </Grid>
-        <Grid item xs={12} md={12} lg={12}>
-          <EditActivity />
-        </Grid>
-        <Grid item xs={12} md={12} lg={12}>
-          <EditInfo />
-        </Grid>
-        <Grid item xs={12} md={12} lg={12}>
-          <EditTechnologies />
         </Grid>
       </Grid>
     </div>

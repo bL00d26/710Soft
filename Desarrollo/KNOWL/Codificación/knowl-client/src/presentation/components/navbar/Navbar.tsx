@@ -19,7 +19,7 @@ const Navbar = () => {
   const user = useSelector(userSelector);
   const classes = navbarStyles();
   const dispatch = useDispatch();
-  
+
   // FROM THE NAVBAR
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -63,11 +63,11 @@ const Navbar = () => {
         >
           {user?.firstName} {user?.lastName}
         </Typography>
-        <IconButton className={classes.buttons}>
+        {/* <IconButton className={classes.buttons}>
           <Badge badgeContent={69} color="secondary">
             <NotificationsIcon />
           </Badge>
-        </IconButton>
+        </IconButton> */}
         <IconButton
           className={classes.buttons}
           onClick={() => dispatch(logOut())}

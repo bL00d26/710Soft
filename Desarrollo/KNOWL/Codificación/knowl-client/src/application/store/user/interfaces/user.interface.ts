@@ -10,4 +10,5 @@ export interface User {
   ocupation: string;
   country: string;
   city: string;
+  status: string;
 }

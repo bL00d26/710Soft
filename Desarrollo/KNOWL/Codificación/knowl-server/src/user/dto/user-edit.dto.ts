@@ -12,5 +12,17 @@ export class EditUserDto {
 
   @IsOptional()
   @IsNotEmpty({ message: UserDtoError.EMAIL, always: true })
-  email?: string;
+  ocupation?: string;
+
+  @IsOptional()
+  @IsNotEmpty({ message: UserDtoError.EMAIL, always: true })
+  birthday?: string;
+
+  @IsOptional()
+  @IsNotEmpty({ message: UserDtoError.EMAIL, always: true })
+  country?: string;
+
+  @IsOptional()
+  @IsNotEmpty({ message: UserDtoError.EMAIL, always: true })
+  city?: string;
 }

@@ -1,16 +1,13 @@
 import { Schema } from 'mongoose';
 
 export const technologySchema = new Schema({
-  technology: {
+  name: {
     type: String,
     required: true,
     unique: true,
   },
-  description: {
-    type: String,
-    required: true,
-  },
-  icon: {
+
+  image: {
     type: String,
     required: true,
   },

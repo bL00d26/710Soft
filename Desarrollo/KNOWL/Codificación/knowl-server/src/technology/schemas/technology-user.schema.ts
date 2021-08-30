@@ -7,6 +7,10 @@ export const technologyUserSchema = new Schema({
     required: true,
     ref: Collection.USER,
   },
+  description: {
+    type: String,
+    required: true,
+  },
   technology: {
     type: Schema.Types.ObjectId,
     required: true,

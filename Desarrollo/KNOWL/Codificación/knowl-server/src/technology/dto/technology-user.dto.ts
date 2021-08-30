@@ -7,4 +7,7 @@ export class TechnologyUserDto {
 
   @IsNotEmpty({ message: UserDtoError.USER_ID, always: true })
   user: string;
+
+  @IsNotEmpty({ message: UserDtoError.USER_ID, always: true })
+  description: string;
 }

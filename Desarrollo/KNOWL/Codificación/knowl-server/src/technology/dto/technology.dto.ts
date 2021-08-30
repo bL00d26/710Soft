@@ -1,6 +1,10 @@
+import { IsNotEmpty } from 'class-validator';
+import { UserDtoError } from 'src/user/enums';
+
 export class TechnologyDto {
-  _id: string;
-  technology: string;
-  description: string;
+  @IsNotEmpty({ message: UserDtoError.USER_ID, always: true })
+  name: string;
+
+  @IsNotEmpty({ message: UserDtoError.USER_ID, always: true })
   image: string;
 }

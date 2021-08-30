@@ -1,7 +1,6 @@
 import { Document } from 'mongoose';
 
 export interface Technology extends Document {
-  technology: string;
-  description: string;
+  name: string;
   image: string;
 }

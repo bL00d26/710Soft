@@ -5,6 +5,7 @@ import { UserModule } from 'src/user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Collection } from 'src/enums';
 import { technologySchema } from './schemas';
+import { technologyUserSchema } from './schemas/technology-user.schema';
 
 @Module({
   providers: [TechnologyService],
@@ -12,6 +13,9 @@ import { technologySchema } from './schemas';
   imports: [
     MongooseModule.forFeature([
       { name: Collection.TECHNOLOGY, schema: technologySchema },
+    ]),
+    MongooseModule.forFeature([
+      { name: Collection.TECHNOLOGY_USER, schema: technologyUserSchema },
     ]),
     UserModule,
   ],

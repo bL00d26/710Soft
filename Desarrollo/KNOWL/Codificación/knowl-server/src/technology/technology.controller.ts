@@ -23,12 +23,46 @@ import { ResponseError } from './enums';
 import { imageFileFilter } from '../utils';
 import { Response } from 'express';
 import { TechnologyService } from './technology.service';
+import { TechnologyUserDto } from './dto/technology-user.dto';
 
 @Controller('technology')
 export class TechnologyController {
   constructor(private technologyService: TechnologyService) {}
 
-  @UseGuards(JwtAuthGuard)
+  @Post('/new')
+  async newTechnology(
+    @Res() res: Response,
+    @Body() technologyDto: TechnologyDto,
+  ) {
+    const technology = await this.technologyService.newTechnology(
+      technologyDto,
+    );
+    if (!technology)
+      throw new NotFoundException(['El correo ya se encuentra registrado']);
+
+    res.status(HttpStatus.OK).json({
+      success: true,
+      technology,
+    });
+  }
+  @Post('/user/new')
+  async newTechnologyUser(
+    @Res() res: Response,
+    @Body() technologyUserDto: TechnologyUserDto,
+  ) {
+    const technologyUser = await this.technologyService.newTechnologyUser(
+      technologyUserDto,
+    );
+    if (!technologyUser)
+      throw new NotFoundException(['El correo ya se encuentra registrado']);
+
+    res.status(HttpStatus.OK).json({
+      success: true,
+      technologyUser,
+    });
+  }
+
+  // @UseGuards(JwtAuthGuard)
   @Post('/image/:id')
   @UseInterceptors(
     FileInterceptor('technologyImage', {
@@ -72,5 +106,27 @@ export class TechnologyController {
     } catch (error) {
       res.sendFile(null);
     }
+  }
+
+  @Get('/')
+  async getTechnologies(@Res() res: Response) {
+    const technologies = await this.technologyService.getTechnologies();
+    if (!technologies) throw new NotFoundException('Error al cargar formación');
+    res.status(HttpStatus.OK).json({
+      success: true,
+      technologies,
+    });
+  }
+  @Get('/:id')
+  async getUserTechnologies(@Res() res: Response, @Param('id') userId: string) {
+    const technologiesUser = await this.technologyService.getTechnologiesUser(
+      userId,
+    );
+    if (!technologiesUser)
+      throw new NotFoundException('Error al cargar formación');
+    res.status(HttpStatus.OK).json({
+      success: true,
+      technologiesUser,
+    });
   }
 }

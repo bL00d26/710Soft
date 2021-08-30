@@ -21,7 +21,9 @@ const FormationPage = () => {
           style={{ textAlign: "center" }}
         ></CardHeader>
         <div className="formation-button-container">
-          <button onClick={(e) => setOpenModal(true)}>Agregar</button>
+          <button className="btn" onClick={(e) => setOpenModal(true)}>
+            Agregar
+          </button>
           {/* <button>Agregar</button> */}
         </div>
         <CardContent>

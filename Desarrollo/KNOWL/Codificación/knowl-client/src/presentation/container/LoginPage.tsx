@@ -122,7 +122,7 @@ const LoginPage = () => {
             Registro
           </Button>
         </form>
-        <Button
+        {/* <Button
           type="button"
           fullWidth
           variant="contained"
@@ -131,7 +131,7 @@ const LoginPage = () => {
           className={classes.submit}
         >
           Recuperar Contraseña
-        </Button>
+        </Button> */}
       </div>
     </Container>
   );

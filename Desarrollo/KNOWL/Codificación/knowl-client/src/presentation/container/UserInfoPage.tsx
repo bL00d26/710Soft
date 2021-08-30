@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import React from "react";
 import CardUserInfo from "../components/card-user-info/CardUserInfo";
 import { contactInfoStyles } from "../components/contact-info/contact-info.styles";
-import Technologies from "../components/technologies/Technologies";
+import TechnologiesUser from "../components/technologies-user/TechnologiesUser";
 
 const UserInfoPage = () => {
   const classes = contactInfoStyles();
@@ -13,7 +13,7 @@ const UserInfoPage = () => {
           <CardUserInfo />
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
-          <Technologies />
+          <TechnologiesUser />
         </Grid>
       </Grid>
     </div>

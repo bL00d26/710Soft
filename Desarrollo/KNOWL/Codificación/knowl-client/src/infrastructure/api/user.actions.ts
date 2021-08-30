@@ -3,6 +3,12 @@ import { toast } from "react-toastify";
 import { Dispatch } from "redux";
 import { RootStore } from "../../application/store/store";
 import {
+  TECHNOLOGIES_USER_ADD,
+  TECHNOLOGIES_USER_LOAD,
+  TechnologyDispatchTypes,
+  technologyURL,
+} from "../../application/store/technology/technology.types";
+import {
   UserDispatchTypes,
   usersURL,
   USER_CHANGE_PROFILE_IMAGE,
@@ -15,6 +21,7 @@ import {
 } from "../../application/store/user/user.types";
 import { ExperienceDto } from "../../presentation/components/new-experience-form/dto/experience.dto";
 import { FormationDto } from "../../presentation/components/new-formation-form/dto/formation.dto";
+import { TechnologyUserDto } from "../../presentation/components/new-technology-user-form/dto/technology-user.dto";
 import { EditUserDto } from "../../presentation/components/settings/dto/user-edit.dto";
 
 export const updateProfileImage =
@@ -99,6 +106,47 @@ export const loadFormation =
       const errorAxios: AxiosError = error;
       console.log(error.response);
       // toast.error("Error al cargar la formación");
+    }
+  };
+
+export const loadTechnologiesUser =
+  (userId: string) => async (dispatch: Dispatch<TechnologyDispatchTypes>) => {
+    try {
+      const res = await axios.get(technologyURL.concat(userId));
+      if (res.data.success) {
+        dispatch({
+          type: TECHNOLOGIES_USER_LOAD,
+          payload: res.data.technologiesUser,
+        });
+      }
+    } catch (error: any) {
+      const errorAxios: AxiosError = error;
+      console.log(error.response);
+    }
+  };
+export const newTechnologyUser =
+  (technologyUserDto: TechnologyUserDto) =>
+  async (
+    dispatch: Dispatch<TechnologyDispatchTypes>,
+    getState: () => RootStore
+  ) => {
+    try {
+      const technologiesUser = getState().technology.technologiesUser;
+      const res = await axios.post(
+        technologyURL.concat(`user/new`),
+        technologyUserDto
+      );
+      if (res.data.success) {
+        dispatch({
+          type: TECHNOLOGIES_USER_ADD,
+          payload: [...technologiesUser, res.data.technologyUser],
+        });
+        toast.success("Nueva tecnología agregada con éxito");
+      }
+    } catch (error: any) {
+      const errorAxios: AxiosError = error;
+      console.log(error.response);
+      toast.error("Error al agregar tecnología");
     }
   };
 export const newFormation =

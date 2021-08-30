@@ -20,6 +20,7 @@ import UserInfoPage from "./UserInfoPage";
 import {
   loadExperience,
   loadFormation,
+  loadTechnologiesUser,
 } from "../../infrastructure/api/user.actions";
 import FormationUserPage from "./FormationUserPage";
 import ExperienceUserPage from "./ExperienceUserPage";
@@ -31,6 +32,7 @@ const Platform = () => {
   useEffect(() => {
     dispatch(loadFormation(user?._id as string));
     dispatch(loadExperience(user?._id as string));
+    dispatch(loadTechnologiesUser(user?._id as string));
   }, []);
   return (
     <div className="platform-container">

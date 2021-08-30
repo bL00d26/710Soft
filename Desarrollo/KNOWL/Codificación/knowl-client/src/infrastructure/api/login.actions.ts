@@ -13,6 +13,11 @@ import {
   UiDispatchTypes,
   UI_LOGIN_ERROR,
 } from "../../application/store/ui/ui.types";
+import {
+  TECHNOLOGIES_LOAD,
+  TechnologyDispatchTypes,
+  technologyURL,
+} from "../../application/store/technology/technology.types";
 // import { getTokenHeader } from "../../../utils/methods";
 
 export const loginUser =
@@ -53,13 +58,28 @@ export const resetLoginErrors = () => (dispatch: Dispatch<UiDispatchTypes>) => {
 };
 
 export const loadUsers =
-  () => async (dispatch: Dispatch<UserDispatchTypes | UiDispatchTypes>) => {
+  () => async (dispatch: Dispatch<UserDispatchTypes>) => {
     try {
       const res = await axios.get(usersURL.concat("all"));
       if (res.data.success) {
         dispatch({
           type: USERS_LOAD,
           payload: res.data.users,
+        });
+      }
+    } catch (error: any) {
+      const errorAxios: AxiosError = error;
+      console.log(error.response);
+    }
+  };
+export const loadTechnologies =
+  () => async (dispatch: Dispatch<TechnologyDispatchTypes>) => {
+    try {
+      const res = await axios.get(technologyURL);
+      if (res.data.success) {
+        dispatch({
+          type: TECHNOLOGIES_LOAD,
+          payload: res.data.technologies,
         });
       }
     } catch (error: any) {

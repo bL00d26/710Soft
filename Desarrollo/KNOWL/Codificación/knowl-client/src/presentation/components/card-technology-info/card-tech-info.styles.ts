@@ -1,40 +1,41 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const cardTechInfoStyles = makeStyles((theme) => ({
-    title: {
-        textAlign: "center",
-    },
-    
-    label: {
-        color: "#F2C685",
-        fontWeight: "bold",
-        whiteSpace: "nowrap",
-    },
+  title: {
+    textAlign: "center",
+  },
 
-    labelcontainer: {
-        marginLeft: "2%",
-        marginRight: "2%",
-        marginBottom: "0%",
-    },
+  label: {
+    color: "#F2C685",
+    fontWeight: "bold",
+    whiteSpace: "nowrap",
+  },
 
-    techcard: {
-        backgroundColor: "#F1F1F1", 
-    },
+  labelcontainer: {
+    // marginLeft: "2%",
+    // marginRight: "2%",
+    // marginBottom: "0%",
+  },
 
-    techdescription: {
-        color: "#5C7073",
-    },
+  techcard: {
+    backgroundColor: "#F1F1F1",
+    maxWidth: "300px",
+  },
 
-    imagecontainer: {
-        display: "inline-block",
-        width: "100px",
-        height: "100px",
-        maxWidth: "150px",
-        maxHeight: "150px",
-        backgroundColor: "gray",
-        borderRadius: "7em",
-        textAlign: "center",
-        marginBottom: "8px",
-    },
+  techdescription: {
+    color: "#5C7073",
+    overflow: "hidden",
+  },
 
-}))
+  imagecontainer: {
+    display: "inline-block",
+    width: "100px",
+    height: "100px",
+    maxWidth: "150px",
+    maxHeight: "150px",
+    backgroundColor: "gray",
+    // borderRadius: "7em",
+    textAlign: "center",
+    marginBottom: "8px",
+  },
+}));

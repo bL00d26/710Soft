@@ -9,6 +9,7 @@ import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
 import { LoginDto } from "../components/login/dto/login.dto";
 import {
+  loadTechnologies,
   loadUsers,
   loginUser,
   resetLoginErrors,
@@ -48,6 +49,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (user) {
       dispatch(loadUsers());
+      dispatch(loadTechnologies());
       history.push(Routes.PROFILE);
     }
     return () => {

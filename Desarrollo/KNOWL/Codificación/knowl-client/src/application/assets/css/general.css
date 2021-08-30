@@ -59,6 +59,29 @@
 .btn:focus {
   background-color: #444b4d;
 }
+
+.horizontal-scroll {
+  display: flex;
+  justify-content: center;
+  margin: 4px, 4px;
+  padding: 4px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.technology-card {
+  margin: 20px;
+}
+
+.span {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.span-overflow {
+  white-space: initial;
+}
 /* .copyright-footer {
   margin-top: 1em;
   grid-area: copyright;
